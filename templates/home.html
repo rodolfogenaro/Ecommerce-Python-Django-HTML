@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %}AION Solution | Software e Consultoria para gestão de e-commerce{% endblock title %}
+
+{% block content %}
+
+<style>
+	button[type="button"]:hover {
+		background-color: rgba(0,0,0,0); /* PRETO: #000000; TRANSPARENTE: rgba(0,0,0,0) */
+		color: #08558B;
+		box-shadow: inset 0 0 0 3px #08558B;
+		transition: .5s;
+	}
+</style>
+
+<div class="container my-3">
+    <h1 class="font-weight-bold"><center>Um software inovador para otimizar o <b>LUCRO</b> do seu e-commerce.</center></h1>
+    <br>
+	<div class="imagem--home">
+		<div class="button--imagem--home">
+			<a href="https://www.aionsolution.com.br/" target="_blank">
+				<center><button type="button">Visitar website oficial</button></center>
+			</a>
+		</div>
+	</div>
+</div>
+<br><br><br>
+<div class="rodape">
+	<br><br>
+	<p>
+		© 2021 Aion Solution
+	</p>
+	<br><br>
+</div>
+
+{% endblock content %}

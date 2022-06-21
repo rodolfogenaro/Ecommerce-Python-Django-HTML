@@ -1,0 +1,85 @@
+{% extends 'base.html' %}
+
+{% block title %}AION | Catálogo do Administrador{% endblock title %}
+
+{% block content %}
+
+
+
+<div class="container my-3">
+    <h1 class="font-weight-bold">Catálogo do Administrador</h1>
+    <p></p>
+    <table class="content-table">
+	  <thead>
+		<tr>
+		  <th class="font-weight-bold">ID</th>
+		  <th class="font-weight-bold">Nome</th>
+		  <th class="font-weight-bold">Ações</th>
+		</tr>
+	  </thead>
+	  <tbody>
+		{% for product in product_list %}
+			<tr>
+			  <td class="font-weight-bold">{{ product.id }}</td>
+			  <td class="font-weight-bold">{{ product.name }}</td>
+			  <form type="post" id="formid"> {% csrf_token %}
+			    <input type="hidden" name="{{ product.name }}" id="formid">
+				<td class="font-weight-bold"><a class="text-decoration-none text-dark" href="{{ product.get_edit_url }}"> <input type="submit" style="display: none;"><u>Editar</u></a></td>
+			  </form>
+			</tr>
+		{% endfor %}
+	  </tbody>
+	</table>
+	
+	<a href="{% url 'products:createcategory' %}">
+		<button class="btn btn-success" type="button">Criar Categoria</button>
+	</a>
+	<a href="{% url 'products:createproduct' %}">
+		<button class="btn btn-success" type="button">Criar Produto</button>
+	</a>
+</div>
+
+<style>
+	.content-table {
+	  border-collapse: collapse;
+	  margin: 25px 0;
+	  font-size: 0.9em;
+	  min-width: 800px;
+	  border-radius: 5px 5px 0 0;
+	  overflow: hidden;
+	  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+	  margin-left: auto;
+	  margin-right: auto;
+	}
+
+	.content-table thead tr {
+	  background-color: #08558B;
+	  color: #ffffff;
+	  text-align: left;
+	  font-weight: bold;
+	}
+
+	.content-table th,
+	.content-table td {
+	  padding: 12px 15px;
+	}
+
+	.content-table tbody tr {
+	  border-bottom: 1px solid #dddddd;
+	}
+
+	.content-table tbody tr:nth-of-type(even) {
+	  background-color: #f3f3f3;
+	}
+
+	.content-table tbody tr:last-of-type {
+	  border-bottom: 2px solid #08558B;
+	}
+
+	.content-table tbody tr.active-row {
+	  font-weight: bold;
+	  color: #000000;
+	}
+</style>
+
+{% endblock content %}

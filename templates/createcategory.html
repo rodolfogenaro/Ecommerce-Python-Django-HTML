@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block title %}AION | Criar Categoria{% endblock title %}
+
+{% block content %}
+
+<div class="container my-3">
+    <h1 class="font-weight-bold">Criar Categoria</h1>
+    <p></p>
+    <form method="post" enctype="multipart/form-data" id="formid"> {% csrf_token %}
+		{{ form.as_p }}
+		<p>
+			<label>Nome: </label>
+			<input type="text" name="name" id="formid" maxlength="255" required placeholder="Digite aqui o nome da categoria">
+		</p>
+		<button class="btn btn-success" type="submit" id="formid">Cadastrar</button>
+		<p></p>
+		<a href="{% url 'products:catalog' %}">
+			Cancelar
+		</a>
+	</form>
+</div>
+
+
+{% endblock content %}

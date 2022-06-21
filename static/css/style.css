@@ -1,0 +1,135 @@
+body {
+    overflow-y: overlay !important;
+    overflow-x: hidden;
+    overflow-wrap: break-word;
+}
+
+.active {
+    background-color: #266fa0 !important;
+    border-color: #266fa0 !important;
+}
+
+button[type="submit"] {
+  text-align: center;
+  text-transform: uppercase;
+  border: none;
+  height: 40px;
+  border-radius: 20px;
+  margin-top: 30px;
+  cursor: pointer;
+  color: #FFF;
+  background-color: #08558B;
+  font-weight: bold;
+  margin-left: auto;
+  margin-right: auto;
+  width: 238px;
+}
+
+button[type="button"] {
+  text-align: center;
+  text-transform: uppercase;
+  border: none;
+  height: 40px;
+  border-radius: 20px;
+  margin-top: 30px;
+  cursor: pointer;
+  color: #FFF;
+  background-color: #08558B;
+  font-weight: bold;
+  margin-left: auto;
+  margin-right: auto;
+  width: 238px;
+}
+
+{% load static %}
+
+.nota_fiscal {
+	padding: 150px;
+	background-image: url('../images/nota_fiscal_fundo.jpg'); /* ../images/nota_fiscal_fundo.jpg */
+	background-size: cover;
+	background-size:50%;
+	background-repeat: no-repeat;
+	background-position: center;
+	background-attachment: scroll;
+}
+
+.texto_nota_fiscal {
+	text-align: left;
+	text-transform: uppercase;
+	max-width: 250px; /* Limite maximo do texto */
+	white-space: nowrap; /* Removendo quebra de linha */
+	overflow: hidden; /* Removendo barra de rolagem */
+	text-overflow: ellipsis; /* Adicionando "..." ao final do texto */
+	/*display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical; Quantidade de linhas */
+	font-family: Courier New;
+	font-weight: bold;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.imagem--home {
+	padding: 360px;
+	background-image: url('../images/AION_home.png'); /* ../images/AION_home.png */
+	background-size: cover;
+	background-size:70%;
+	background-repeat: no-repeat;
+	background-position: center;
+	background-attachment: scroll;
+}
+
+.button--imagem--home {
+	position: relative;
+	top: 150px;
+}
+
+.rodape {
+	width: 100%;
+	background: black;
+	color: #FFF;
+	text-align: center;
+}
+
+/* formulário para cadastrar produtos */
+form {
+  margin-top: 30px;
+  margin-bottom: 40px;
+}
+
+label, input {
+  display: block;
+  width: 100%;
+  text-align: left;
+}
+
+label {
+  font-weight: bold;
+  font-size: .8rem;
+}
+
+input {
+  border-bottom: 2px solid #323232;
+  padding: 10px;
+  font-size: 1rem;
+  margin-bottom: 20px;
+}
+
+input:focus {
+  border-bottom: 2px solid #08558B;
+}
+
+input[type="submit"] {
+  text-align: center;
+  text-transform: uppercase;
+  border: none;
+  height: 40px;
+  border-radius: 20px;
+  margin-top: 30px;
+  cursor: pointer;
+  color: #FFF;
+  background-color: #08558B;
+  font-weight: bold;
+  margin-right: auto;
+  width: 238px;
+}

@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+
+{% block title %}AION | Comprar {{ specific_product.name }}{% endblock title %}
+
+{% block content %}
+
+<div class="container my-3">
+    <h1 class="font-weight-bold">Comprar {{ specific_product.name }}</h1>
+    <p>
+        <font size="4">Insira os dados da compra:</font>
+    </p>
+	<form method="post" id="formid"> {% csrf_token %}
+		{{ form.as_p }}
+		<select name="specific_product" id="formid" style="display: none;" required="True">
+			<option value="{{ specific_product.id }}" selected></option>
+		</select>
+		<p>
+			<label>Quantidade: </label>
+			<input type="number" name="quantity" id="formid" min="1" max="{{ specific_product.is_available }}" required placeholder="Digite aqui a quantidade que quer comprar deste produto">
+		</p>
+		<input type="number" name="price" id="formid" min="0" required placeholder="R$" step=".01" value="0" style="display: none;">
+		<p>
+			<label>Nome: </label>
+			<input type="text" name="name" id="formid" maxlength="255" required placeholder="Digite aqui seu nome completo">
+		</p>
+		<p>
+			<label>CPF: </label>
+			<input type="text" name="cpf" id="formid" maxlength="14" required placeholder="Digite aqui seu CPF">
+		</p>
+		<p>
+			<label>E-mail: </label>
+			<input type="email" name="email" id="formid" maxlength="254" required placeholder="Digite aqui seu e-mail">
+		</p>
+		<p>
+			<label>Endereço: </label>
+			<input type="text" name="address" id="formid" maxlength="150" required placeholder="Digite aqui seu endereço">
+		</p>
+		<p>
+			<b><font size="5">PREÇO UNITÁRIO: R$ {{ specific_product.price }}</font></b> 
+		</p>
+		<button class="btn btn-success" type="submit" id="formid">Finalizar Compra</button>
+		<p></p>
+		<a href="{% url 'products:list' %}">
+			Cancelar
+		</a>
+	</form>
+</div>
+
+{% endblock content %}

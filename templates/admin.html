@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block title %}AION | Login do Administrador{% endblock title %}
+
+{% block content %}
+
+<div class="container my-3">
+    <h1 class="font-weight-bold">Login do Administrador</h1>
+    <form action="users:loggrd"> {% csrf_token %}
+      <table>
+        <tr>
+          <td>{{ form.username.label_tag }}</td>
+          <td>{{ form.username }}</td>
+        </tr>
+        <tr>
+          <td>{{ form.password.label_tag }}</td>
+          <td>{{ form.password }}</td>
+        </tr>
+      </table>
+      <p></p>
+      <p>
+        <label>E-mail: </label>
+        <input type="email" name="email" id="email" placeholder="Digite aqui seu e-mail">
+      </p>
+      <p>
+        <label>Senha: </label>
+        <input type="password" name="password" id="password" placeholder="Digite aqui sua senha">
+      </p>
+      <input type="submit" value="login" />
+    <form>
+</div>
+
+{% endblock content %}

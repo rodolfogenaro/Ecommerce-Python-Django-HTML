@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% block title %}AION | Compra Efetuada{% endblock title %}
+
+{% block content %}
+
+<div class="container my-3">
+    <h1 class="font-weight-bold">Compra Realizada com Sucesso!</h1>
+    <p>
+        <font size="4">Confira abaixo os dados da sua compra:</font>
+    </p>
+	<font size="2"><div class="nota_fiscal">
+		<p>
+			<div class="texto_nota_fiscal">Produto: {{ specific_order.specific_product }}</div>
+		</p>
+		<p>
+			<div class="texto_nota_fiscal">Quantidade: {{ specific_order.quantity }}</div>
+		</p>
+		<p>
+			<div class="texto_nota_fiscal">Valor Total: R$ {{ specific_order.price }}</div>
+		</p>
+		<br>
+		<p>
+			<div class="texto_nota_fiscal">Nome: {{ specific_order.name }}</div>
+		</p>
+		<p>
+			<div class="texto_nota_fiscal">CPF: {{ specific_order.cpf }}</div>
+		</p>
+		<p>
+			<div class="texto_nota_fiscal">E-mail: {{ specific_order.email }}</div>
+		</p>
+		<p>
+			<div class="texto_nota_fiscal">Endereço: {{ specific_order.address }}</div>
+		</p>
+	</div></font>
+	<p></p>
+	<a href="{% url 'products:list' %}">
+		<button class="btn btn-success" type="button">Voltar ao Catálogo</button>
+	</a>
+</div>
+
+{% endblock content %}

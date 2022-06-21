@@ -1,0 +1,89 @@
+{% extends 'base.html' %}
+
+{% block title %}AION | Criar Produto{% endblock title %}
+
+{% block content %}
+
+<div class="container my-3">
+    <h1 class="font-weight-bold">Criar Produto</h1>
+    <p></p>
+    <form method="post" enctype="multipart/form-data" id="formid"> {% csrf_token %}
+		{{ form.as_p }}
+		<p>
+			<label>Categoria: </label>
+				<select name="category" id="formid" class="custom-select" style="width:200px;" required="True">
+					{% for category in category_list %}
+						<option value="{{ category.id }}">{{ category.name }}</option>
+					{% endfor %}
+				</select>
+		</p>
+		<p>
+			<label>Nome: </label>
+			<input type="text" name="name" id="formid" maxlength="255" required placeholder="Digite aqui o nome do produto">
+		</p>
+		<p>
+			<label>Imagem: </label>
+			<input type="file" name="image" id="formid" formaction="formid" accept="image/*" alt="Submit">
+		</p>
+		<p>
+			<label>Descrição: </label>
+			<input type="text" name="description" id="formid" required placeholder="Digite aqui a descrição do produto">
+		</p>
+		<p>
+			<label>Preço: </label>
+			<input type="number" name="price" id="formid" min="0" required placeholder="R$" step=".01">
+		</p>
+		<p>
+			<label>Estoque: </label>
+			<input type="number" name="is_available" id="formid" min="0" required placeholder="Digite aqui a quantidade disponível desse produto">
+		</p>
+		<button class="btn btn-success" type="submit" id="formid">Cadastrar</button>
+		<p></p>
+		<a href="{% url 'products:catalog' %}">
+			Cancelar
+		</a>
+	</form>
+</div>
+
+<style>
+	/*the container must be positioned relative:*/
+	.custom-select {
+	  position: scroll;
+	  font-family: Arial;
+	}
+
+	.custom-select select {
+	  display: none; /*hide original SELECT element:*/
+	}
+
+	.select-selected {
+	  background-color: DodgerBlue;
+	}
+
+	/*style the items (options), including the selected item:*/
+	.select-items div,.select-selected {
+	  color: #ffffff;
+	  padding: 8px 16px;
+	  border: 1px solid transparent;
+	  border-color: transparent transparent rgba(0, 0, 0, 0.1) transparent;
+	  cursor: pointer;
+	  user-select: none;
+	}
+
+	/*style items (options):*/
+	.select-items {
+	  position: scroll;
+	  background-color: DodgerBlue;
+	  top: 100%;
+	  left: 0;
+	  right: 0;
+	  z-index: 99;
+	}
+
+	/*hide the items when the select box is closed:*/
+	.select-hide {
+	  display: none;
+	}
+</style>
+
+{% endblock content %}
